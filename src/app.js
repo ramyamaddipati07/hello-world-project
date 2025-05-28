@@ -1,13 +1,6 @@
-// Importing necessary modules (if needed)
 console.log("Hello, World!");
-// Function to handle login
 function handleLogin(username, password) {
-    if (username === "admin" && password === "password123") {
-        console.log("Login successful!");
-    }
-    else {
-        console.log("Invalid credentials.");
-    }
+    return username === "admin" && password === "password123";
 }
-// Example usage
-handleLogin("admin", "password123");
+// Attach handleLogin to the global window object
+window.handleLogin = handleLogin;
