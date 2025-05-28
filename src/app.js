@@ -1,14 +1,13 @@
 // Importing necessary modules (if needed)
 console.log("Hello, World!");
-
 // Function to handle login
-function handleLogin(username: string, password: string): void {
+function handleLogin(username, password) {
     if (username === "admin" && password === "password123") {
         console.log("Login successful!");
-    } else {
+    }
+    else {
         console.log("Invalid credentials.");
     }
 }
-
 // Example usage
 handleLogin("admin", "password123");

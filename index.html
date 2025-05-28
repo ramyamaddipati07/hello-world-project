@@ -20,17 +20,19 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 300px;
+            box-sizing: border-box; /* Ensures padding is included in width */
         }
         .login-container h1 {
             text-align: center;
             margin-bottom: 20px;
         }
         .login-container input {
-            width: 100%;
+            width: 100%; /* Ensures input fields fit within the container */
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
+            box-sizing: border-box; /* Ensures padding is included in width */
         }
         .login-container button {
             width: 100%;
@@ -46,6 +48,8 @@
         }
     </style>
 </head>
+
+
 <body>
     <div class="login-container">
         <h1>Login</h1>
@@ -56,6 +60,7 @@
     <script src="./app.js"></script>
     <script>
         function login() {
+            console.log("Login function triggered");
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             handleLogin(username, password);
