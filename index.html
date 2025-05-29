@@ -13,30 +13,31 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f4f4f4;
+            background-image: url('./images/background_image.jpg'); /* Replace with your image URL */
+            background-size: cover;
+            background-position: center;
         }
         .header {
             text-align: center;
             margin-bottom: 20px;
+            color: #0c0b0b; /* Text color for better visibility on background */
         }
         .header h1 {
             font-size: 32px;
-            color: #333;
         }
         .header p {
             font-size: 18px;
-            color: #666;
         }
         .login-container {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 300px;
             box-sizing: border-box;
+            text-align: center;
         }
         .login-container h1 {
-            text-align: center;
             margin-bottom: 20px;
         }
         .login-container input {
@@ -50,6 +51,7 @@
         .login-container button {
             width: 100%;
             padding: 10px;
+            margin-top: 10px;
             background-color: #007bff;
             color: #fff;
             border: none;
@@ -59,9 +61,15 @@
         .login-container button:hover {
             background-color: #0056b3;
         }
+        .signup-button {
+            margin-top: 10px;
+            background-color: #28a745;
+        }
+        .signup-button:hover {
+            background-color: #218838;
+        }
         .error-message {
             color: red;
-            text-align: center;
             margin-top: 10px;
         }
     </style>
@@ -69,20 +77,27 @@
 <body>
     <div class="header">
         <h1>Welcome to ShopEase</h1>
-        <p>Your one-stop shop for all your needs. Please log in to continue.</p>
+        <p>Your one-stop shop for all your needs. Please log in or sign up to continue.</p>
     </div>
     <div class="login-container">
         <h1>Login</h1>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
+        <button class="signup-button" onclick="signup()">Sign Up</button>
         <p id="error-message" class="error-message"></p>
     </div>
     <script src="./src/app.js"></script>
     <script>
         function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            if (!username || !password) {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = "Please fill in both fields.";
+                return;
+            }
 
             const isLoginSuccessful = handleLogin(username, password);
 
@@ -92,6 +107,10 @@
                 const errorMessage = document.getElementById('error-message');
                 errorMessage.textContent = "Invalid credentials. Please try again.";
             }
+        }
+
+        function signup() {
+            window.location.href = "./signup.html"; // Redirect to a signup page
         }
     </script>
 </body>
