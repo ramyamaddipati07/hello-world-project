@@ -1,24 +1,16 @@
 {
   "name": "hello-world-project",
   "version": "1.0.0",
-  "description": "A simple TypeScript Hello World application",
-  "main": "dist/app.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "typescript": "^4.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yourusername/hello-world-project.git"
-  },
-  "keywords": [
-    "typescript",
-    "hello world"
-  ],
-  "author": "Your Name",
-  "license": "ISC"
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.8.3"
+  }
 }

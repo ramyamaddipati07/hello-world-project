@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>E-Commerce Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 32px;
+            color: #333;
+        }
+        .header p {
+            font-size: 18px;
+            color: #666;
         }
         .login-container {
             background: #fff;
@@ -20,19 +33,19 @@
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             width: 300px;
-            box-sizing: border-box; /* Ensures padding is included in width */
+            box-sizing: border-box;
         }
         .login-container h1 {
             text-align: center;
             margin-bottom: 20px;
         }
         .login-container input {
-            width: 100%; /* Ensures input fields fit within the container */
+            width: 100%;
             padding: 10px;
             margin: 10px 0;
             border: 1px solid #ccc;
             border-radius: 4px;
-            box-sizing: border-box; /* Ensures padding is included in width */
+            box-sizing: border-box;
         }
         .login-container button {
             width: 100%;
@@ -46,24 +59,39 @@
         .login-container button:hover {
             background-color: #0056b3;
         }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-top: 10px;
+        }
     </style>
 </head>
-
-
 <body>
+    <div class="header">
+        <h1>Welcome to ShopEase</h1>
+        <p>Your one-stop shop for all your needs. Please log in to continue.</p>
+    </div>
     <div class="login-container">
         <h1>Login</h1>
         <input type="text" id="username" placeholder="Username">
         <input type="password" id="password" placeholder="Password">
         <button onclick="login()">Login</button>
+        <p id="error-message" class="error-message"></p>
     </div>
-    <script src="./app.js"></script>
+    <script src="./src/app.js"></script>
     <script>
         function login() {
-            console.log("Login function triggered");
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            handleLogin(username, password);
+
+            const isLoginSuccessful = handleLogin(username, password);
+
+            if (isLoginSuccessful) {
+                window.location.href = "./login-success.html";
+            } else {
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = "Invalid credentials. Please try again.";
+            }
         }
     </script>
 </body>
