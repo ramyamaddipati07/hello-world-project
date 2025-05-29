@@ -3,16 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
+    <title>E-Commerce Login</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
             background-color: #f4f4f4;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 32px;
+            color: #333;
+        }
+        .header p {
+            font-size: 18px;
+            color: #666;
         }
         .login-container {
             background: #fff;
@@ -54,6 +67,10 @@
     </style>
 </head>
 <body>
+    <div class="header">
+        <h1>Welcome to ShopEase</h1>
+        <p>Your one-stop shop for all your needs. Please log in to continue.</p>
+    </div>
     <div class="login-container">
         <h1>Login</h1>
         <input type="text" id="username" placeholder="Username">
@@ -72,7 +89,8 @@
             if (isLoginSuccessful) {
                 window.location.href = "./login-success.html";
             } else {
-                window.location.href = "./login-failed.html";
+                const errorMessage = document.getElementById('error-message');
+                errorMessage.textContent = "Invalid credentials. Please try again.";
             }
         }
     </script>
